@@ -1,0 +1,893 @@
+/*
+#include "Labs_ExInterface.h"
+//assignment 6
+
+#include "Labs_ExInterface.h"
+#include "bit_manipulation.h"
+int *revArr(int* ,int );
+void main()
+{
+    int arr[5]={1,2,3,4,5};
+    int *p = revArr(arr,5);
+    printf("the reversed array: ");
+    for(int i=0;i<5;i++)
+    {
+        printf("%d ",p[i]);
+    }
+}
+int *revArr(int* arr,int size)
+{
+    int j=0;
+    int * p2arr = (int*)malloc(size*sizeof(int));
+    if(p2arr == NULL){
+        printf("wrong processes");
+        return 0;
+    }
+    else
+    {
+        for(int i=size-1;i>=0;i--)
+        {
+            p2arr[j]=arr[i];
+            j++;
+        }
+    }
+    return p2arr;
+}
+
+
+//lab3
+
+int fib(int );
+void main()
+{
+    int num,c=1;
+    scanf("%d",&num);
+    while(1)
+    {
+        printf("%d ",c);
+        if(c == num || c > num)
+            break;
+        c =fib(c);
+    }
+}
+int fib(int f)
+{
+    static int pevf =0;
+    int res =pevf+f;
+    pevf = f;
+    return res;
+}
+
+
+//lab2
+void main()
+{
+    int newsize;
+    printf("enter size of array = ");
+    scanf("%d",&newsize);
+    int * p2arr = (int*)malloc(newsize*sizeof(int));
+    if(p2arr == NULL)
+        printf("wrong processes");
+    else
+    {
+        printf("enter your array: ");
+        for(int i=0;i<newsize;i++)
+        {
+            scanf("%d",&p2arr[i]);
+        }
+        printf("the reversed array: ");
+        for(int i=newsize-1;i>=0;i--)
+        {
+            printf("%d ",p2arr[i]);
+        }
+    }
+}
+
+
+//lab1
+typedef enum CalSym{
+    Add=43,Sub=45,Mult=42,Div=47
+}cal;
+
+void main()
+{
+    char op;
+    float a,b,res;
+    float (*p2f[4])(float ,float )={add,sub,mul,div_fn};
+    printf("enter your operate = num1 (op) num2\nop = (+ or - or * or /)\n");
+    scanf("%f %c %f",&a,&op,&b);
+    switch (op)
+    {
+        case Add:
+            res = p2f[0](a,b);
+            break;
+        case Sub:
+            res = p2f[1](a,b);
+            break;
+        case Mult:
+            res = p2f[2](a,b);
+            break;
+        case Div:
+            res = p2f[3](a,b);
+            break;
+        default:
+            printf("wrong input");
+            break;
+    }
+    printf("%.3f %c %.3f = %.3f",a,op,b,res);
+}
+
+////////////////////////////////////////
+//assignment5
+void main()
+{
+    float avg=0.0;
+    student students[10],maxst,minst;
+    get_data(students,10);
+    average_highest_lowest_grade(students,10,&avg,&maxst,&minst);
+    printf("the max student = %s, id %d, grade %d\n",maxst.name,maxst.id,maxst.grade);
+    printf("the min student = %s, id %d, grade %d\n",minst.name,minst.id,minst.grade);
+    printf("the average %.3f",avg);
+    ///for(int i=0;i<10;i++)
+    ///{
+        ///printf("the name of student num %d= %s, id %d, grade %d\n",i+1,
+                  ///students[i].name,students[i].id,students[i].grade);
+    ///}
+}
+
+///////////////////////////////////////
+int rising_edge_counter(char signal);
+void main()
+{
+    int arr[10]={0,1,0,1,0,1,1,0,0,1};
+    int counter=0;
+
+    for (int i = 0; i < 10; i++)
+    {
+        counter = rising_edge_counter(arr[i]);
+    }
+    printf("risign edge counter  = %d\n" , counter);
+}
+int rising_edge_counter(char signal)
+{
+    static char PreviseValue = 0,count =0;
+    //printf("i'm in c%d s%d p%d\n",count,signal,PreviseValue);
+    if(PreviseValue ==0&& signal==1)
+    {
+        count++;
+    }
+    PreviseValue = signal;
+    return count;
+}
+
+
+/////////////
+//lab5
+void main()
+{
+    char str[30];
+    gets(str);
+    printf("in upper case %s\n",strupr(str));
+    printf("in lower case %s\n",strlwr(str));
+}
+//lab4
+void main()
+{
+    char str1[30],str2[30];
+    gets(str1);
+    gets(str2);
+    if(strlen(str1)== strlen(str2))
+    {
+        for(int i=0;i<strlen(str1);i++)
+        {
+            if(str1[i]!=str2[i]){
+                printf("there are not the same");
+                break;
+            }
+        }
+        printf("there are the same");
+
+    }
+    else{
+        printf("there are not the same");
+    }
+}
+//lab3
+void main()
+{
+    char str1[30],count=1;
+    gets(str1);
+    for(int i=0;i<strlen(str1);i++)
+    {
+        if(str1[i]==' '&& str1[i+1] !=' '&& str1[i+1] !='\0')
+            count++;
+    }
+    printf("the count of word is %d",count);
+}
+//lab2
+void main()
+{
+    char str1[30],*p2str;
+    gets(str1);
+    printf("reverse loop = ");
+    for(int i = strlen(str1)-1;i>=0;i--)
+    {
+        printf("%c",str1[i]);
+    }
+    p2str = strrev(str1);
+    printf("\nreverse func = %s",p2str);
+}
+//lab1
+void main()
+{
+    char str1[30],str2[30];
+    printf("enter your first name: ");
+    gets(str1);
+    printf("enter your last name: ");
+    gets(str2);
+    ///strcat(str1,str2);
+    printf("your name is %s %s",str1,str2);
+}
+/*
+strlen(*str)=> return size of string +1'\0'
+strcpy(*str2,*str1) => copy str1 to str2
+strcat(*str1,*str2) => it restore (st1 + str2) in str1
+strcmp(*str1,*str2) => return 0 if they are the same ,1 if not
+strrev (*str) => return string in reverse order & it reverse main string
+strupr(*str) => return string in upper case
+strlwr(*str) => return string in lower case
+*/
+////////////////////
+//week4 lab
+//assignment 1
+#include "Labs_ExInterface.h"
+
+void MotorHalfSpeed()
+{
+    printf("Half Speed.\n");
+}
+void MotorStop()
+{
+    printf("Stop.\n");
+}
+void MotorFullSpeed()
+{
+    printf("Full Speed.\n");
+}
+void MotorReverseDir()
+{
+    printf("Reverse Direction.\n");
+}
+
+
+int main()
+{
+    char state=0 , c;
+    void (*p2ArrOfFunc[])(void) ={MotorHalfSpeed, MotorStop, MotorFullSpeed, MotorStop};
+    while(1){
+        c =getch();
+        if( c== 99){
+            p2ArrOfFunc[state]();
+            printf("Delay 1 sec..\n");
+            state = (state+1)% 4;
+        }else if(c == 27)
+        {
+            printf("you Ended the program.");
+            break;
+        }
+        else
+        {
+            printf("**you should enter C to change state and ESC to Exit**\n");
+        }
+    }
+}
+
+//////////////////////////////
+#include "Labs_ExInterface.h"
+#define PI 3.14
+float circ(int r)
+{
+    return (float)2*PI*r;
+}
+float area(int r)
+{
+    return (float)PI*r*r;
+}
+int main()
+{
+    int r,op;
+    float res;
+    float (*p2f[])(int)={area, circ};
+    printf("enter radius\n1.for area.\n2.for circ\n");
+    scanf("%d %d",&r,&op);
+    switch(op)
+    {
+    case 1:
+        res = p2f[0](r);
+        printf("the area =%.3f",res);
+        break;
+    case 2:
+        res = p2f[1](r);
+        printf("the circ =%.3f",res);
+        break;
+    default:
+        printf("Invaild input");
+        break;
+    }
+    float (*p2c[])(float ,float)={add, sub, mul, div_fn};
+    for(int i=0;i<4;i++)
+    {
+        printf("\nresult = %.3f\n",p2c[i](2,3));
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//second share 7/29/2023
+#include <stdio.h>
+#include <stdlib.h>
+#define endl printf("\n");
+int main()
+{
+    FizzBuzz();
+    return 0;
+}
+
+////////////////
+//lab 4
+int DisplayNumber()
+{
+    for(int i =4;i>=1;i--)
+    {
+        for(int j =1;j<=i;j++)
+        {
+            printf("%d",j);
+        }
+        endl;
+    }
+    endl;
+    return 0;
+}
+/////////////////
+//lab 3
+int NumberOfDigit()
+{
+    int count=0,number,x;
+    scanf("%d",&number);
+    x =number;
+    while(x !=0)
+    {
+        x/=10;
+        count++;
+    }
+    printf("the number %d is contant of %d digits",number,count);
+    endl;
+    return 0;
+}
+/////////////////////
+//lab 2
+int MultiTable()
+{
+    for(int i =1;i<=10;i++)
+    {
+        for(int j =i;j<=10;j++)
+        {
+            printf("%d * %d = %d",i,j,i*j);
+        }
+        printf("\n");
+    }
+    endl;
+    return 0;
+}
+////////////////////
+//lab 1
+int FizzBuzz()
+{
+    for(int i =1;i<=100;i++)
+    {
+        if(i %3 ==0 && i%5 ==0)
+        {
+            printf("FIZZBUZZ\n");
+        }else if(i % 3 ==0)
+        {
+            printf("FIZZ\n");
+        }else if(i % 5 ==0)
+        {
+            printf("BUZZ\n");
+        }else{
+            printf("%d\n",i);
+        }
+    }
+    endl;
+    return 0;
+}/*
+    //first share
+    Even();
+    fact();
+    MultTable();
+    selectDay();*/
+/*
+//lab 4
+int selectDay()
+{
+    int num;
+    do{
+        printf("Enter number of day ");
+        scanf("%d",&num);
+        switch(num)
+        {
+        case 1:
+            printf("sat\n");
+            break;
+        case 2:
+            printf("sun\n");
+            break;
+        case 3:
+            printf("mon\n");
+            break;
+        case 4:
+            printf("tu\n");
+            break;
+        case 5:
+            printf("wed\n");
+            break;
+        case 6:
+            printf("th\n");
+            break;
+        case 7:
+            printf("fr\n");
+            break;
+        default:
+            break;
+        }
+    }while(num !=0 );
+    endl;
+    return 0;
+
+}
+//////////////////////////////////
+
+//lab 3
+int MultTable()
+{
+    int input;
+    printf("enter number to get table = ");
+    scanf("%d",&input);
+    for(int i=1;i<=12;i++)
+    {
+        printf("%d * %d = %d\n",i,input,i*input);
+    }
+    endl;
+    return 0;
+
+}
+///////////////////////////
+//lab 2
+int fact()
+{
+    unsigned int num;
+    unsigned long long int  fac =1;
+    printf("Enter number to get factorial = ");
+    scanf("%u",&num);
+    for(int i=1;i<=num;i++)
+    {
+        fac *=i;
+    }
+    printf("the factorial of %u = %llu\n\n",num,fac);
+    return 0;
+
+}
+///////////////
+//lab 1
+int Even()
+{
+    int SumOfEven =0 , num;
+    printf("Even Numbers ");
+    for(num=2;num<99;num+=2)
+    {
+        printf("%d, ",num);
+        SumOfEven +=num;
+    }
+    printf("\nthe sum of even numbers 2 : 99 = %d\n\n",SumOfEven);
+    return 0;
+
+}
+
+/*
+//////////////////
+    float a,b,c,res,disc ;//discriminant%
+    printf("Enter your equation parameters a ,b ,c = ");
+    scanf("%f %f %f",&a,&b,&c);
+    disc = pow(b,2) - (4*a*c);
+    res = -b / (2*a);
+
+    if(disc > 0)
+    {
+        disc = sqrt(disc)/2;
+        printf("it have two real roots \nroot1 = %.3f \nroot2 = %.3f",res+disc,res-disc);
+    }else if (disc == 0)
+    {
+        printf("it have one root = %f",res);
+    }else
+    {
+        disc = sqrt(-1*disc)/2;
+        printf("it have two imagine roots \nroot1 = %.3f + %.3fi \nroot2 = %.3f - %.3fi ",res,disc,res,disc);
+    }
+
+
+    switch(disc == 0)
+    {
+        case 1:          //for one root or two roots have same value
+            printf("it have one root = %f",res);
+            break;
+        case 0:          //for anther
+            switch(disc > 0)
+            {
+                case 1:      //for positive discriminant
+                    disc = sqrt(disc)/2;
+                    printf("it have two real roots \nroot1 = %.3f \nroot2 = %.3f",res+disc,res-disc);
+                    break;
+                case 0:     //for negative discriminant
+                    disc = sqrt(-1*disc)/2;
+                    printf("it have two imagine roots \nroot1 = %.3f + %.3fi \nroot2 = %.3f - %.3fi ",res,disc,res,disc);
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            printf("it's def");
+            break;
+    }
+    */
+
+////////////////////////////////////////////////////////////
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+    float a,b,c,res,disc ;//discriminant%
+    printf("Enter your equation parameters a ,b ,c = ");
+    scanf("%f %f %f",&a,&b,&c);
+    disc = pow(b,2) - (4*a*c);
+    res = -b / (2*a);
+/*
+    if(disc > 0)
+    {
+        disc = sqrt(disc)/2;
+        printf("it have two real roots \nroot1 = %.3f \nroot2 = %.3f",res+disc,res-disc);
+    }else if (disc == 0)
+    {
+        printf("it have one root = %f",res);
+    }else
+    {
+        disc = sqrt(-1*disc)/2;
+        printf("it have two imagine roots \nroot1 = %.3f + %.3fi \nroot2 = %.3f - %.3fi ",res,disc,res,disc);
+    }
+*/
+
+//////////////////////////////////
+
+    switch(disc == 0)
+    {
+        case 1:          //for one root or two roots have same value
+            printf("it have one root = %f",res);
+            break;
+        case 0:          //for anther
+            switch(disc > 0)
+            {
+                case 1:      //for positive discriminant
+                    disc = sqrt(disc)/2;
+                    printf("it have two real roots \nroot1 = %.3f \nroot2 = %.3f",res+disc,res-disc);
+                    break;
+                case 0:     //for negative discriminant
+                    disc = sqrt(-1*disc)/2;
+                    printf("it have two imagine roots \nroot1 = %.3f + %.3fi \nroot2 = %.3f - %.3fi ",res,disc,res,disc);
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            printf("it's def");
+            break;
+    }
+    return ;
+
+}
+
+///////////////////////////////////////
+//7/28/2023 nti
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int num;
+    printf("Enter number of day ");
+    scanf("%d",&num);
+
+    switch(num)
+    {
+    case 1:
+        printf("sat");
+        break;
+    case 2:
+        printf("sun");
+        break;
+    case 3:
+        printf("mon");
+        break;
+    case 4:
+        printf("tu");
+        break;
+    case 5:
+        printf("wed");
+        break;
+    case 6:
+        printf("th");
+        break;
+    case 7:
+        printf("fr");
+        break;
+    default:
+        printf("zero");
+        break;
+    }
+}
+/**
+////////
+int main()
+{
+    int num;
+    printf("Enter number of day ");
+    scanf("%d",&num);
+
+    switch(num)
+    {
+    case 1:
+        printf("sat");
+        break;
+    case 2:
+        printf("sun");
+        break;
+    case 3:
+        printf("mon");
+        break;
+    case 4:
+        printf("tu");
+        break;
+    case 5:
+        printf("wed");
+        break;
+    case 6:
+        printf("th");
+        break;
+    case 7:
+        printf("fr");
+        break;
+    default:
+        printf("zero");
+        break;
+    }
+}
+////////////////
+int main()
+{
+    int num;
+    printf("Enter number ");
+    scanf("%d",&num);
+
+    switch(num > 0)
+    {
+    case 1:
+        printf("postive");
+        break;
+    case 0:
+        switch(num ==0)
+        {
+        case 1:
+            printf("zero")
+            break;
+        case 0
+            printf("negative");
+            break;
+        default:
+            break;
+        }
+    default:
+        printf("error");
+        break;
+    }
+}
+/////////////////
+
+int main()
+{
+    int salary,statue;
+    printf("Enter your salary ");
+    scanf("%d",&salary);
+    printf("Enter your marital status \nfor single >>1\nMarried without kids >>2\nMarried with kids >>3 ");
+    scanf("%d",&statue);
+    switch(statue)
+    {
+    case 1:
+        printf("salary = %.4f",(float)salary);
+        break;
+    case 2:
+        printf("salary = %.4f",(float)salary*1.01);
+        break;
+    case 3:
+        printf("salary = %.4f",(float)salary*1.02);
+        break;
+    default:
+        printf("ERROR Input");
+        break;
+    }
+}
+//////////////
+int main()
+{
+    int ID;
+    printf("Enter your iD ");
+    scanf("%d",&ID);
+    switch(ID)
+    {
+    case 1234:
+        printf("Hello Amr");
+        break;
+    case 5678:
+        printf("Hello Maha");
+        break;
+    case 9101:
+        printf("Hello Ahmed");
+        break;
+    default:
+        printf("ERROR ID");
+        break;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////
+
+int x, y,result;
+    char z;
+    scanf("%d %c %d",&x,&z,&y);
+    switch(z)
+    {
+    case'+':
+        printf("result = %d",x+y);
+        break;
+    case'-':
+        printf("result = %d",x-y);
+        break;
+    case'*':
+        printf("result = %d",x*y);
+        break;
+    case'/':
+        printf("result = %f",(float)x/y);
+        break;
+    case'%':
+        printf("result = %d",x%y);
+        break;
+
+    }
+////////////
+    int x ,y,dx,dy ;
+    scanf("%d %d",&x,&y);
+    dx = (100 -x);
+    dy = (100 -y);
+    if(dx == dy)
+    {
+        printf("they in same distance");
+    }
+    else if(dx > dy)
+    {
+        printf("y is nearest");
+    }else if(dy > dx)
+    {
+        printf("x is nearest");
+    }
+////////////////////
+    int x;
+    scanf("%d",&x);
+    if(x% 7 ==0 && x%3 ==0)
+    {
+        printf("it is Ok with 3,7")
+    }
+    else if( x% 7 == 0)
+    {
+        printf("mult of 7");
+    }else if ( x% 3 == 0)
+    {
+        printf("Mult of 3");
+    }else{
+        printf("it's mult by anther");
+    }
+//////////////////////
+    int x;
+    scanf("%d",&x);
+    if (x > 51)
+    {
+        printf("the triple = %d",3*(x-51));
+    }else
+    {
+        printf("the difference = %d",(x-51));
+    }
+/////////////////
+int x,y;
+    scanf("%d",&x);
+    scanf("%d",&y);
+    if (x == y)
+    {
+        printf("the triple = %d",3*x);
+    }else
+    {
+        printf("the sum = %d",x+y);
+    }
+    return 0;
+
+
+///////////////
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int p;
+    printf("Enter number = ");
+    scanf("%d",&p);
+    if (p >=85 && p <=100)
+    {
+        printf("Excellent");
+    }else if(p>=75)
+    {
+        printf("very Good");
+    }else if(p>=65)
+    {
+        printf("Good");
+    }else if(p>=50)
+    {
+        printf("Pass");
+    }else if(p<50 && p > 0)
+    {
+        printf("Fail");
+    }else
+    {
+        printf("not valid number");
+    }
+
+    return 0;
+}
+*/

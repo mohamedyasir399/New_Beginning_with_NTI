@@ -31,13 +31,33 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Linked list.c">
+		<Unit filename="App.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Linked list.h" />
+		<Unit filename="App.h" />
+		<Unit filename="linked_list_struct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="linked_list_struct.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="queue_struct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="queue_struct.h" />
+		<Unit filename="search_algo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="search_algo.h" />
+		<Unit filename="sort_algo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sort_algo.h" />
+		<Unit filename="stack_struct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="stack_struct.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
