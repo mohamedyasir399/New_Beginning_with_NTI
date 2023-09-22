@@ -136,7 +136,12 @@ void Add_New_Employee(sll_t * list , data_t* value )                    ///Add E
             current = current->p2next;
         }
         //now current points at the last node in the list
-        current->p2next = newNode;
+        if(Check_ID(list,newNode->data->id)!=Existing_ID)
+            current->p2next = newNode;
+        else
+        {
+            printf("**Sorry this ID Existing \n ");
+        }
     }
 
     list->size++;
@@ -210,7 +215,7 @@ sNode_t * search_Employee(sll_t* list, char* value)
 
 }
 
-sLinkedList_statue Check_ID(sll_t* list,data_t* value)
+sLinkedList_statue Check_ID(sll_t* list,char* value)
 {
     if(list ==NULL)
     {
@@ -224,9 +229,9 @@ sLinkedList_statue Check_ID(sll_t* list,data_t* value)
 
     while (current != NULL)
     {
-        if(checkName(value->id,current->data->id))
+        if(checkName(value,current->data->id))
         {
-            //printf("i am here\n");
+            //printf("how am here\n");
             return Existing_ID;
         }
         current = current->p2next;
@@ -269,8 +274,8 @@ void Modify_EmployeeData(sll_t* list,char* key,m_data Mdata)   ///Edit Employee 
     case id_t:
         printf("New id = ");
         gets(id);
-        if(Check_ID(list,Employee->data)==Existing_ID){
-            printf("****Sorry this id has been Existing****\n");
+        if(Check_ID(list,id)==Existing_ID){
+            printf("****Sorry this ID has been Existing****\n");
         }else{
             strcpy(Employee->data->id,id);
         }
@@ -292,9 +297,9 @@ void Modify_EmployeeData(sll_t* list,char* key,m_data Mdata)   ///Edit Employee 
         strcpy(Employee->data->id ,e->id);
         Employee->data->age =e->age;
         Employee->data->salary =e->salary;
+        free(e);
         break;
     }
-    free(e);
 }
 
 
@@ -316,7 +321,7 @@ void Delete_EmployeeData(sll_t *list,char* value)
 
     sNode_t * current = list->headNode , *prev;
 
-    if(list->headNode->data == value)
+    if(checkName(list->headNode->data->name, value)||checkName(list->headNode->data->id, value))
     {
         list->headNode = list->headNode->p2next;
         free(current);
@@ -330,7 +335,7 @@ void Delete_EmployeeData(sll_t *list,char* value)
         {
             if(atoi(current->data->id) == key)
             {
-                //printf("i am here\n");
+                //printf("i am here key\n");
                 break;
             }
         }else

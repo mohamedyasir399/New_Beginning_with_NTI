@@ -1,5 +1,7 @@
 /**
 written By : Mohamed Yasser Ahmed
+Repo on GitHub:https://github.com/mohamedyasir399/New_Beginning_with_NTI.git
+Testing Video On Google Drive: https://drive.google.com/file/d/1ANLHkCkbyEaF7qLUlgXqnS2BJWmEjHHQ/view?usp=sharing
 **/
 #include "App.h"
 typedef enum{
@@ -75,6 +77,5 @@ int main()
         printf("\n-----------------------------------------\n");
         fflush(stdin);
     }
-    free_sll(sll);
     return 0;
 }

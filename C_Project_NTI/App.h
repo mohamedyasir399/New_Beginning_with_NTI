@@ -56,7 +56,7 @@ sNode_t * create_node(data_t* value);
 ///free data from memory by the end of program
 sLinkedList_statue free_sll(sll_t * list);
 
-sLinkedList_statue Check_ID(sll_t*list ,data_t* value);
+sLinkedList_statue Check_ID(sll_t*list ,char* value);
 void Add_New_Employee(sll_t * list , data_t* value );                     ///Add Employee to List
 void Delete_EmployeeData(sll_t *list,char* value);   ///Remove Employee from List
 void Modify_EmployeeData(sll_t* list,char* key,m_data Mdata);   ///Edit Employee Data
