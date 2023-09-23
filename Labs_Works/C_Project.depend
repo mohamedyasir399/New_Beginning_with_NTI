@@ -56,3 +56,40 @@
 	<stdlib.h>
 	"string.h"
 
+1695269643 source:c:\users\pc\downloads\nti_embedded_c\my_github\new_beginning_with_nti\labs_works\app.c
+	"App.h"
+
+1695273217 c:\users\pc\downloads\nti_embedded_c\my_github\new_beginning_with_nti\labs_works\app.h
+
+1695294134 source:c:\users\pc\downloads\nti_embedded_c\my_github\new_beginning_with_nti\labs_works\linked_list_struct.c
+	"linked_list_struct.h"
+
+1695356849 c:\users\pc\downloads\nti_embedded_c\my_github\new_beginning_with_nti\labs_works\linked_list_struct.h
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+
+1695276498 source:c:\users\pc\downloads\nti_embedded_c\my_github\new_beginning_with_nti\labs_works\queue_struct.c
+	"queue_struct.h"
+
+1695359523 c:\users\pc\downloads\nti_embedded_c\my_github\new_beginning_with_nti\labs_works\queue_struct.h
+	<stdio.h>
+	<stdlib.h>
+
+1695198204 source:c:\users\pc\downloads\nti_embedded_c\my_github\new_beginning_with_nti\labs_works\search_algo.c
+	"search_algo.h"
+
+1695198124 c:\users\pc\downloads\nti_embedded_c\my_github\new_beginning_with_nti\labs_works\search_algo.h
+
+1695058165 source:c:\users\pc\downloads\nti_embedded_c\my_github\new_beginning_with_nti\labs_works\sort_algo.c
+	"sort_algo.h"
+
+1695058163 c:\users\pc\downloads\nti_embedded_c\my_github\new_beginning_with_nti\labs_works\sort_algo.h
+
+1695359523 source:c:\users\pc\downloads\nti_embedded_c\my_github\new_beginning_with_nti\labs_works\stack_struct.c
+	<stdio.h>
+	<stdlib.h>
+	"stack_struct.h"
+
+1695357731 c:\users\pc\downloads\nti_embedded_c\my_github\new_beginning_with_nti\labs_works\stack_struct.h
+
